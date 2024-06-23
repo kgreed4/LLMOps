@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial Assistant</h1>
+        <form id="query-form">
+            <textarea id="input_text" name="input_text" placeholder="Enter your query here..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="response">
+            <h2>Response:</h2>
+            <p id="output"></p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#query-form').on('submit', function(event) {
+                event.preventDefault();
+                var input_text = $('#input_text').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/query',
+                    data: {input_text: input_text},
+                    success: function(data) {
+                        $('#output').text(data.output);
+                    },
+                    error: function() {
+                        $('#output').text('An error occurred.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
