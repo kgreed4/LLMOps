@@ -35,6 +35,8 @@ pure_eval==0.2.3
 pydantic==2.5.3
 pydantic-core==2.14.6
 Pygments==2.18.0
+pytest==8.3.2
+pytest-mock==3.14.0
 python-dateutil==2.9.0
 pyzmq==25.1.2
 setuptools==72.1.0
