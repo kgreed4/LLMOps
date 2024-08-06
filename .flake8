@@ -1,3 +1,4 @@
 # .flake8
-exclude = .git,__pycache__,docs/source/conf.py,old,build,dist, .venv
+exclude = .git,__pycache__,docs/source/conf.py,old,build,dist, .venv, venv
 max-line-length = 127
+ignore = F821
