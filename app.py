@@ -120,48 +120,44 @@ def get_insights(questionType, api_output, question):
     """
 
     aggregate_instructions = (
-        base_instructions
-        + """ The data is stock prices over a specific time period. 
+        base_instructions + """ The data is stock prices over a specific time period.
 
-    EXAMPLE 1:
-    User question: "What has been ABNB's daily closing price between March 7, 2024, and March 14, 2024?"
-    Data received: [Agg(open=165, high=165.385, low=162.24, close=163.54, volume=3810295.0, vwap=164.0838, timestamp=1709787600000, transactions=62526, otc=None), Agg(open=166, high=168.19, low=163.48, close=164.91, volume=4105743.0, vwap=165.3491, timestamp=1709874000000, transactions=68910, otc=None), Agg(open=163.76, high=164.26, low=161.975, close=162.99, volume=3149599.0, vwap=162.9596, timestamp=1710129600000, transactions=61047, otc=None), Agg(open=163, high=167, low=162.73, close=166.67, volume=3945890.0, vwap=165.8521, timestamp=1710216000000, transactions=68605, otc=None), Agg(open=162.42, high=168, low=160.69, close=164.76, volume=7498321.0, vwap=165.1396, timestamp=1710302400000, transactions=83344, otc=None), Agg(open=165.74, high=166.7199, low=162.72, close=166.44, volume=5078143.0, vwap=165.9731, timestamp=1710388800000, transactions=65226, otc=None)]
-    *Open = opening price, High = highest price, Low = lowest price, Close = closing price, Volume = number of shares traded, VWAP = volume-weighted average price, Timestamp = Unix timestamp, Transactions = number of transactions, OTC = over-the-counter trades
-    Output: "The daily closing prices for ABNB between March 7, 2024, and March 14, 2024, were as follows: 163.54, 164.91, 162.99, 166.67, 164.76, 166.44."
-    """
+        EXAMPLE 1:
+        User question: "What has been ABNB's daily closing price between March 7, 2024, and March 14, 2024?"
+        Data received: [Agg(open=165, high=165.385, low=162.24, close=163.54, volume=3810295.0, vwap=164.0838, timestamp=1709787600000, transactions=62526, otc=None), Agg(open=166, high=168.19, low=163.48, close=164.91, volume=4105743.0, vwap=165.3491, timestamp=1709874000000, transactions=68910, otc=None), Agg(open=163.76, high=164.26, low=161.975, close=162.99, volume=3149599.0, vwap=162.9596, timestamp=1710129600000, transactions=61047, otc=None), Agg(open=163, high=167, low=162.73, close=166.67, volume=3945890.0, vwap=165.8521, timestamp=1710216000000, transactions=68605, otc=None), Agg(open=162.42, high=168, low=160.69, close=164.76, volume=7498321.0, vwap=165.1396, timestamp=1710302400000, transactions=83344, otc=None), Agg(open=165.74, high=166.7199, low=162.72, close=166.44, volume=5078143.0, vwap=165.9731, timestamp=1710388800000, transactions=65226, otc=None)]
+        *Open = opening price, High = highest price, Low = lowest price, Close = closing price, Volume = number of shares traded, VWAP = volume-weighted average price, Timestamp = Unix timestamp, Transactions = number of transactions, OTC = over-the-counter trades
+        Output: "The daily closing prices for ABNB between March 7, 2024, and March 14, 2024, were as follows: 163.54, 164.91, 162.99, 166.67, 164.76, 166.44."
+        """
     )
     news_instructions = (
-        base_instructions
-        + """ The data is a list of news articles for a specific ticker symbol.
-    EXAMPLE 2:
-    User question: "What is the latest news on AAPL?"
-    Data received:  [['Opinion: This Is the Most Overlooked Artificial Intelligence (AI) Stock to Buy Right Now',
-                'Arm Holdings, a chip designer, is seen as an overlooked AI stock with strong growth potential. Its power-efficient architecture and licensing model make it well-positioned to benefit from the rise of AI, particularly in data centers.'],
-              ['Tech Earnings: Will the Next Batch Encourage Investors to Rotate Back in?',
-                'The upcoming earnings reports from major tech companies like Microsoft, Amazon, Meta, and Apple will be closely watched by investors to see if they can impress and encourage a rotation back into the sector after recent disappointing results from Tesla and Alphabet.'],
-              ['Magnificent 7 Earnings Preview: Can Investors Buy Tech Now?',
-                'The article discusses the upcoming earnings reports from four major tech companies - Microsoft, Meta Platforms, Amazon, and Apple. It analyzes the growth expectations, valuations, and potential impact of AI-related concerns on these stocks. The author suggests that the recent dip in these stocks could be a buying opportunity, despite some uncertainty around the broader market and the upcoming US presidential election.'],
-              ['Arm Holdings (ARM) Stock: Buy or Sell Before Q1 Earnings?',
-                'Arm Holdings plc is set to report its first-quarter fiscal 2025 results on Jul 31. The company is expected to see continued top-line strength driven by both Royalty and License revenues. However, the stock has recently entered a correction phase, suggesting investors should approach with caution due to potential risks, including a weak operating performance and increased costs.'],
-              ['Global Wearable Technology Market Size To Worth USD 201.3 Billion By 2033 l CAGR Of 12.43%',
-                'The global wearable technology market is expected to grow from $62.4 billion in 2023 to $201.3 billion by 2033, driven by the increasing adoption of smart clothing, VR headsets, and IoT-based wearables, particularly in the healthcare and fitness sectors.']]                
-    Output: 
-    Latest News on Apple
-      Tech Earnings: Will the Next Batch Encourage Investors to Rotate Back in?
-        Summary: Investors are eagerly awaiting the upcoming earnings reports from major tech companies, including Apple. These reports will be scrutinized to see if they can impress and encourage a rotation back into the tech sector following disappointing results from Tesla and Alphabet.
-      Magnificent 7 Earnings Preview: Can Investors Buy Tech Now?
-        Summary: The article discusses the upcoming earnings reports from Apple and other major tech companies. It analyzes growth expectations and valuations, suggesting that the recent dip in these stocks might present a buying opportunity despite market uncertainties and the upcoming US presidential election.
-    """
+        base_instructions + """ The data is a list of news articles for a specific ticker symbol.
+            EXAMPLE 2:
+            User question: "What is the latest news on AAPL?"
+            Data received:  [['Opinion: This Is the Most Overlooked Artificial Intelligence (AI) Stock to Buy Right Now',
+                        'Arm Holdings, a chip designer, is seen as an overlooked AI stock with strong growth potential. Its power-efficient architecture and licensing model make it well-positioned to benefit from the rise of AI, particularly in data centers.'],
+                    ['Tech Earnings: Will the Next Batch Encourage Investors to Rotate Back in?',
+                        'The upcoming earnings reports from major tech companies like Microsoft, Amazon, Meta, and Apple will be closely watched by investors to see if they can impress and encourage a rotation back into the sector after recent disappointing results from Tesla and Alphabet.'],
+                    ['Magnificent 7 Earnings Preview: Can Investors Buy Tech Now?',
+                        'The article discusses the upcoming earnings reports from four major tech companies - Microsoft, Meta Platforms, Amazon, and Apple. It analyzes the growth expectations, valuations, and potential impact of AI-related concerns on these stocks. The author suggests that the recent dip in these stocks could be a buying opportunity, despite some uncertainty around the broader market and the upcoming US presidential election.'],
+                    ['Arm Holdings (ARM) Stock: Buy or Sell Before Q1 Earnings?',
+                        'Arm Holdings plc is set to report its first-quarter fiscal 2025 results on Jul 31. The company is expected to see continued top-line strength driven by both Royalty and License revenues. However, the stock has recently entered a correction phase, suggesting investors should approach with caution due to potential risks, including a weak operating performance and increased costs.'],
+                    ['Global Wearable Technology Market Size To Worth USD 201.3 Billion By 2033 l CAGR Of 12.43%',
+                        'The global wearable technology market is expected to grow from $62.4 billion in 2023 to $201.3 billion by 2033, driven by the increasing adoption of smart clothing, VR headsets, and IoT-based wearables, particularly in the healthcare and fitness sectors.']]
+            Output:
+            Latest News on Apple
+            Tech Earnings: Will the Next Batch Encourage Investors to Rotate Back in?
+                Summary: Investors are eagerly awaiting the upcoming earnings reports from major tech companies, including Apple. These reports will be scrutinized to see if they can impress and encourage a rotation back into the tech sector following disappointing results from Tesla and Alphabet.
+            Magnificent 7 Earnings Preview: Can Investors Buy Tech Now?
+                Summary: The article discusses the upcoming earnings reports from Apple and other major tech companies. It analyzes growth expectations and valuations, suggesting that the recent dip in these stocks might present a buying opportunity despite market uncertainties and the upcoming US presidential election.
+            """
     )
     ticker_details_instructions = (
-        base_instructions
-        + """ 
-    The data is detailed information about a specific ticker symbol and its homepage URL.
-    EXAMPLE 3:
-    User question: "Tell me about Aris Water Solutions Inc."
-    Data received: [Aris Water Solutions Inc is an environmental infrastructure and solutions company that helps customers reduce their water and carbon footprints. It has two primary revenue streams. The Produced Water Handling business gathers, transports, and, unless recycled, handles produced water generated from oil and natural gas production. The Water Solutions business develops and operates recycling facilities to treat, store and recycle produced water., https://www.ariswater.com]
-    Output: "Aris Water Solutions Inc is an environmental infrastructure and solutions company that helps customers reduce their water and carbon footprints. It has two primary revenue streams: Produced Water Handling and Water Solutions. The Produced Water Handling business gathers, transports, and handles produced water generated from oil and natural gas production. The Water Solutions business develops and operates recycling facilities to treat, store, and recycle produced water. You can find more information on their website: https://www.ariswater.com
-    """
+        base_instructions + """ The data is detailed information about a specific ticker symbol and its homepage URL.
+            EXAMPLE 3:
+            User question: "Tell me about Aris Water Solutions Inc."
+            Data received: [Aris Water Solutions Inc is an environmental infrastructure and solutions company that helps customers reduce their water and carbon footprints. It has two primary revenue streams. The Produced Water Handling business gathers, transports, and, unless recycled, handles produced water generated from oil and natural gas production. The Water Solutions business develops and operates recycling facilities to treat, store and recycle produced water., https://www.ariswater.com]
+            Output: "Aris Water Solutions Inc is an environmental infrastructure and solutions company that helps customers reduce their water and carbon footprints. It has two primary revenue streams: Produced Water Handling and Water Solutions. The Produced Water Handling business gathers, transports, and handles produced water generated from oil and natural gas production. The Water Solutions business develops and operates recycling facilities to treat, store, and recycle produced water. You can find more information on their website: https://www.ariswater.com
+            """
     )
     # Determine which instructions to use based on the question type
     if questionType == "PolygonAggregates":
