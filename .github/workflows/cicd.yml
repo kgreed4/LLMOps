@@ -59,11 +59,11 @@ jobs:
     
     - name: Build Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/LLMOps:latest .
-        docker tag ${{ secrets.DOCKER_USERNAME }}/LLMOps:latest ${{ secrets.DOCKER_USERNAME }}/LLMOps:latest
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/llmops:latest .
+        docker tag ${{ secrets.DOCKER_USERNAME }}/llmops:latest ${{ secrets.DOCKER_USERNAME }}/llmops:latest
     
     - name: Push Docker image with retry
       run: |
         for i in 1 2 3; do
-          docker push ${{ secrets.DOCKER_USERNAME }}/LLMOps:latest && s=0 && break || s=$? && sleep 15;
+          docker push ${{ secrets.DOCKER_USERNAME }}/llmops:latest && s=0 && break || s=$? && sleep 15;
         done; (exit $s)
