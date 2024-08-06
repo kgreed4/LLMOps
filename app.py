@@ -39,7 +39,7 @@ def determine_tool(input):
     Output: [PolygonAggregates, {'ticker': 'ABNB', 'timespan': 'day', 'timespan_multiplier': 1, 'from_date': '2024-03-07', 'to_date': '2024-03-14'}]
     """
     client = OpenAI(
-    base_url="http://localhost:8080/v1",
+    base_url="http://host.docker.internal:8080/v1",
     api_key = "sk-no-key-required"
     )
     completion = client.chat.completions.create(
@@ -155,7 +155,7 @@ def get_insights(questionType, api_output, question):
         return "Invalid input. Please provide a valid tool name."
     
     client = OpenAI(
-        base_url="http://localhost:8080/v1",
+        base_url="http://host.docker.internal:8080/v1",
         api_key = "sk-no-key-required"
     )
     completion = client.chat.completions.create(
