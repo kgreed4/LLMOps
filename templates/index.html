@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Financial Assistant</h1>
+        <h2>Fi-Guy: Wall Street in your Pocket</h2>
+        <h4>the financial assistant you didn't know you needed</h4>
         <form id="query-form">
             <textarea id="input_text" name="input_text" placeholder="Enter your query here..." required></textarea>
             <button type="submit">Submit</button>
@@ -18,21 +19,28 @@
             <h2>Response:</h2>
             <p id="output"></p>
         </div>
+        <div id="loading" hidden>
+            <div class="spinner"></div>
+        </div>
     </div>
-
     <script>
         $(document).ready(function() {
             $('#query-form').on('submit', function(event) {
                 event.preventDefault();
                 var input_text = $('#input_text').val();
+                console.log('Form submitted'); // Debugging line
+                $('#loading').removeAttr('hidden'); // Show the loader
+                $('#output').text(''); // Clear previous output
                 $.ajax({
                     type: 'POST',
                     url: '/query',
                     data: {input_text: input_text},
                     success: function(data) {
+                        $('#loading').attr('hidden', true); // Hide the loader
                         $('#output').text(data.output);
                     },
                     error: function() {
+                        $('#loading').attr('hidden', true); // Hide the loader
                         $('#output').text('An error occurred.');
                     }
                 });
