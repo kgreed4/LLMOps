@@ -2,4 +2,4 @@
 [flake8]
 exclude = .git,__pycache__,docs/source/conf.py,old,build,dist, .venv, venv
 max-line-length = 127
-ignore = E501
+ignore = E501, W503

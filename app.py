@@ -120,7 +120,8 @@ def get_insights(questionType, api_output, question):
     """
 
     aggregate_instructions = (
-        base_instructions + """ The data is stock prices over a specific time period.
+        base_instructions
+        + """ The data is stock prices over a specific time period.
 
         EXAMPLE 1:
         User question: "What has been ABNB's daily closing price between March 7, 2024, and March 14, 2024?"
@@ -130,7 +131,8 @@ def get_insights(questionType, api_output, question):
         """
     )
     news_instructions = (
-        base_instructions + """ The data is a list of news articles for a specific ticker symbol.
+        base_instructions
+        + """ The data is a list of news articles for a specific ticker symbol.
             EXAMPLE 2:
             User question: "What is the latest news on AAPL?"
             Data received:  [['Opinion: This Is the Most Overlooked Artificial Intelligence (AI) Stock to Buy Right Now',
@@ -152,7 +154,8 @@ def get_insights(questionType, api_output, question):
             """
     )
     ticker_details_instructions = (
-        base_instructions + """ The data is detailed information about a specific ticker symbol and its homepage URL.
+        base_instructions
+        + """ The data is detailed information about a specific ticker symbol and its homepage URL.
             EXAMPLE 3:
             User question: "Tell me about Aris Water Solutions Inc."
             Data received: [Aris Water Solutions Inc is an environmental infrastructure and solutions company that helps customers reduce their water and carbon footprints. It has two primary revenue streams. The Produced Water Handling business gathers, transports, and, unless recycled, handles produced water generated from oil and natural gas production. The Water Solutions business develops and operates recycling facilities to treat, store and recycle produced water., https://www.ariswater.com]
