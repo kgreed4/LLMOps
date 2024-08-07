@@ -7,6 +7,7 @@
 Fi-Guy is a financial assistant designed to answer questions about daily stock performance (ie. open, close, high, low price), recent ticker news, and detailed ticker information. It uses the Polygon.io API to gather information and then processes it through your local .llamafile. 
 
 ## Demo Video
+[Link to Demo Video](https://youtu.be/-Iyl8ieg4xE)
 
 ## Project Purpose
 The purpose of this project is to enhance financial literacy and give power to everyday investors. Understanding Wall Street is not rocket science, all it takes is getting the right information from the right source. The project uses the Polygon.io API to gather the most accurate and up to date information available before processing it locally (keeping everything secure) and outputting the best answer possible. Fi-Guy has three main features: 
