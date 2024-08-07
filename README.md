@@ -1,5 +1,5 @@
 # Fi-Guy: Wall Street in your Pocket
-the financial assistant you didn't know you needed
+### the financial assistant you didn't know you needed
 
 ![CI/CD Status](https://github.com/kgreed4/llmops/actions/workflows/cicd.yml/badge.svg)
 
