@@ -38,7 +38,7 @@ Running the App:
 1. Run the llamafile: `./mistral-7b-instruct-v0.2.Q4_0.llamafile`
 2. Build Docker Image: `docker build -t llmops .`
 3. Run Docker Container: `docker run -p 3000:3000 llmops`
-[!Alt text](https://github.com/kgreed4/LLMOps/blob/main/running-locally.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/running-locally.png?raw=true)
 4. Access the app via browser and link http://127.0.0.1:3000
 5. Ask away, learn, & become a financial expert!
 
@@ -48,7 +48,7 @@ What were Apple's daily closing prices from July 8, 2024 to July 12, 2024?
                     OR
 What is the most recent news about NVIDIA?
 
-[!Alt text](https://github.com/kgreed4/LLMOps/blob/main/quest-ex.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/quest-ex.png?raw=true)
 
 Testing the App:
 1. Run the testing script: `python -m pytest`
