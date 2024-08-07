@@ -6,7 +6,7 @@
 ### Designed for AIPI 561: LLMops
 Fi-Guy is a financial assistant designed to answer questions about daily stock performance (ie. open, close, high, low price), recent ticker news, and detailed ticker information. It uses the Polygon.io API to gather information and then processes it through your local .llamafile. 
 
-![Alt text](https://github.com/kgreed4/LLMOps/blob/main/news-example.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/images/news-example.png?raw=true)
 
 ## Demo Video
 [Link to Demo Video](https://youtu.be/-Iyl8ieg4xE)
@@ -20,7 +20,7 @@ Each of these features can be done for any ticker—making life for the user tha
 **NOTE: The free version of the Polygon.io allows for 5 API calls/min. 
 
 ## Architecture Diagram
-![Alt text](https://github.com/kgreed4/LLMOps/blob/main/arch_llmops.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/images/arch_llmops.png?raw=true)
 
 ## Set up
 Initial set-up steps:
@@ -42,7 +42,7 @@ Running the App:
 1. Run the llamafile: `./mistral-7b-instruct-v0.2.Q4_0.llamafile`
 2. Build Docker Image: `docker build -t llmops .`
 3. Run Docker Container: `docker run -p 3000:3000 llmops`
-![Alt text](https://github.com/kgreed4/LLMOps/blob/main/running-locally.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/images/running-locally.png?raw=true)
 4. Access the app via browser and link http://127.0.0.1:3000
 5. Ask away, learn, & become a financial expert!
 
@@ -52,7 +52,7 @@ What were Apple's daily closing prices from July 8, 2024 to July 12, 2024?
                     OR
 What is the most recent news about NVIDIA?
 
-![Alt text](https://github.com/kgreed4/LLMOps/blob/main/quest-ex.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/images/quest-ex.png?raw=true)
 
 Testing the App:
 1. Run the testing script: `python -m pytest`
@@ -60,7 +60,7 @@ Testing the App:
 ## Evaluation
 For evaluation, Fi-Guy was compared to GPT-4o. They were accessed on three pieces of criteria: relevance, accuracy, and the number of seconds it takes for an answer to be generated. A subset of human curated prompts equally distributed between the 3 categories was used to evaluate the two models. A group of human evaluators then evaluated each response on a scale of 1 to 5. The average for relevance, accuracy, and seconds/response are shown below. 
 
-![Alt text](https://github.com/kgreed4/LLMOps/blob/main/eval-pic.png?raw=true)
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/images/eval-pic.png?raw=true)
 
 When comparing, Fi-Guy is similar to GPT-4o for relevance, meaning their responses both generally answered the question. In terms of accuracy though, Fi-Guy largely outperformed GPT-4o, meaning its answers were more concrete and correct. However, the drawback of Fi-Guy, a local LLM, is certainly the response time. Fi-Guy takes much longer, on average, to respond than GPT, but is overall more accurate and relevant.
 
