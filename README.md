@@ -6,6 +6,8 @@
 ### Designed for AIPI 561: LLMops
 Fi-Guy is a financial assistant designed to answer questions about daily stock performance (ie. open, close, high, low price), recent ticker news, and detailed ticker information. It uses the Polygon.io API to gather information and then processes it through your local .llamafile. 
 
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/news-example.png?raw=true)
+
 ## Demo Video
 [Link to Demo Video](https://youtu.be/-Iyl8ieg4xE)
 
