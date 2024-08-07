@@ -14,6 +14,7 @@ The purpose of this project is to enhance financial literacy and give power to e
 - Delivering Recent Ticker News
 - Conducting Background Research
 Each of these features can be done for any ticker—making life for the user that much easier! Well what are you still doing reading…let’s get investing!
+**NOTE: The free version of the Polygon.io allows for 5 API calls/min. 
 
 ## Architecture Diagram
 ![Alt text](https://github.com/kgreed4/LLMOps/blob/main/arch_llmops.png?raw=true)
@@ -54,3 +55,10 @@ Testing the App:
 1. Run the testing script: `python -m pytest`
 
 ## Evaluation
+For evaluation, Fi-Guy was compared to GPT-4o. They were accessed on three pieces of criteria: relevance, accuracy, and the number of seconds it takes for an answer to be generated. A subset of human curated prompts equally distributed between the 3 categories was used to evaluate the two models. A group of human evaluators then evaluated each response on a scale of 1 to 5. The average for relevance, accuracy, and seconds/response are shown below. 
+
+![Alt text](https://github.com/kgreed4/LLMOps/blob/main/eval-pic.png?raw=true)
+
+When comparing, Fi-Guy is similar to GPT-4o for relevance, meaning their responses both generally answered the question. In terms of accuracy though, Fi-Guy largely outperformed GPT-4o, meaning its answers were more concrete and correct. However, the drawback of Fi-Guy, a local LLM, is certainly the response time. Fi-Guy takes much longer, on average, to respond than GPT, but is overall more accurate and relevant.
+
+A very important note is that access to GPT-4o for free is limited and the normal free GPT-4 does not answer any of these questions as it cannot use/retrieve recent information. In comparison, Fi-Guy is free for all users all the time!
